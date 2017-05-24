@@ -1,0 +1,32 @@
+<link rel="stylesheet" type="text/css" href="template/market/market.css">
+<smallhead></smallhead>
+<div class="zong">
+<div class="saylist">
+	<div ng-repeat="i in date" class="say" ng-click="chooseMenu(i,i.name,$index)" ng-class="$index==index?'thissay':''">{{i.name}}</div>
+</div>
+<div class="right">
+	<div class="fenlei">
+	<ul>
+		<li>全部分类</li>
+		<li>综合排序</li>
+	</ul>
+	</div>
+	<div class="goodlist">
+		<div ng-repeat="i in currentgood" class="clear">
+			<div class="img"><img ng-src="{{i.img}}"></div>
+			<div class="speak">
+				<p>{{ i.name }}</p>
+				<span>精选</span>
+				<span ng-class="{'gift': i.pm_desc}">{{ i.pm_desc }}</span>
+				<p>{{ i.specifics}}</p>
+				<span>￥{{ i.price }}</span><span>￥{{ i.market_price }}</span>
+				<div class="add">
+					<a ng-click="addGOODs(i,-1)" ng-show="i.num>0">-</a>
+					<a>{{i.num==0?'':i.num}}</a>
+					<a ng-click="addGOODs(i,1)">+</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

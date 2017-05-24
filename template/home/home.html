@@ -1,0 +1,30 @@
+<link rel="stylesheet" type="text/css" href="template/home/home.css">
+<smallhead></smallhead>
+<div class="swiper-container" style="margin-top:110px;">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" ng-repeat="i in dataList"><img ng-src="{{i.activity.img}}"></div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+    
+    <!-- 如果需要导航按钮 -->
+ <!--    <div class="swiper-button-prev"></div>
+ <div class="swiper-button-next"></div> -->
+    
+    <!-- 如果需要滚动条 -->
+  <!--   <div class="swiper-scrollbar"></div> -->
+</div>
+<div class="menus clear">
+	<div ng-repeat="i in dataList1" class="menurep">
+		<img ng-src="{{i.activity.img}}">
+		<p>{{i.activity.name}}</p>
+	</div>
+</div>
+<div class="hotsel clear">
+<h1>热卖</h1>
+	<div ng-repeat="i in hotDate">
+		<img ng-src="{{i.img}}" data-id="{{i.id}}" ui-sref="detail({id:i.id})">
+		<p style="white-space:nowrap;text-overflow:ellipsis">{{i.name}}</p>
+		<p class="money"><span>¥{{i.price}}</span><span>¥{{i.market_price}}</span><span ng-click="addGoods(i)">+</span></p>
+	</div>
+</div>

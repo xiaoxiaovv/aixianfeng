@@ -1,0 +1,42 @@
+.menus{
+	width: 100%;
+}
+.menus .menurep{
+	width: 25%;
+	float: left;
+	text-align: center;
+}
+.hotsel{
+	width: 100%;
+}
+.hotsel div{
+	float:left;
+	width:33.3%;
+	text-align: center;
+	 height: 4.8rem;
+}
+.hotsel p{
+	overflow: hidden;
+}
+.hotsel div img{
+	width: 100%;
+}
+.hotsel .money{
+	margin-top: 0.266667rem;
+	font-size: 0.426667rem;
+	width: 100%;
+}
+.hotsel .money span:first-of-type{
+	color:red;
+}
+.hotsel .money span:nth-of-type(2){
+	text-decoration:line-through;
+}
+.hotsel .money span:last-of-type{
+    margin-left: 10%;
+    display: inline-block;
+    height: 0.666667rem;
+    width: 0.666667rem;
+    border: 1px solid orange;
+    border-radius: 50%;
+}

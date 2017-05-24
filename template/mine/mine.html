@@ -1,0 +1,43 @@
+<link rel="stylesheet" type="text/css" href="template/mine/mine.css">
+<div class="mine">
+	<div class="heade">
+		<img ng-src="template/mine/imgs/head.png" alt="">
+		<div>
+			<p>18161200256</p>
+			<p>V0</p>
+		</div>
+		<span></span>
+	</div>
+	<div class="collect">
+		<div>
+			<span>商品收藏</span>
+		</div>
+		<div></div>
+		<div>
+			<span>店铺收藏</span>
+		</div>
+	</div>
+	<div class="myGoods">
+		<span>我的订单</span>
+		<span>查看全部订单</span>
+	</div>
+	<div class="service">
+		<div ng-repeat="i in data">
+			<img ng-src="{{i.url}}">
+			<p>{{i.text}}</p>
+		</div>
+	</div>
+	<div class="service">
+		<div ng-repeat="m in qtdata">
+			<img ng-src="{{m.url}}" style="margin-top:0.826667rem">
+			<p>{{m.text}}</p>
+		</div>
+	</div>
+	<ul class="one">
+		<li>
+			<img ng-src="template/mine/imgs/9.png" alt="">
+			<p>关于我们</p>
+		</li>
+	</ul>
+	<div class="quit">退出当前账号</div>
+</div>

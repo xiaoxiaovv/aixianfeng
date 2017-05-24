@@ -1,0 +1,35 @@
+<link rel="stylesheet" type="text/css" href="template/cart/cart.css">
+<h1>购物车</h1>
+<div class="dizhi">
+	<pre>  收 货 人  崔先生</pre>
+	<pre>  电    话  1888888888           修改＞</pre>
+	<pre>  收货地址  北京昌平</pre>
+</div>
+<div class="lalala"></div>
+<div class="beizhu">
+	<p>闪送超市</p>
+	<p>¥0起送,22:00前满¥30免运费</p>
+	<pre>  收货时间  30分钟送达           可预订＞</pre>
+	<pre>  收货备注 <input type="text" value="可输入100字以内特殊要求内容"/></pre>
+	<span>凑单专区</span>
+</div>
+<div>
+	<div ng-repeat="i in buy" class="clear mybuy" style="position:relative">
+		<div class="tubiao"></div>
+		<div class="tupian">
+			<img ng-src="{{i.img}}">
+		</div>
+		<div class="miaoshu">
+			<p>{{i.name}}</p>
+			<p>{{(i.price)*(i.num) | number:2}}</p>
+		</div>
+		<div class="add1">
+			<a ng-show="i.num>0" ng-click="addGOOds(i,-1)">-</a>
+			<a>{{i.num==0?'':i.num}}</a>
+			<a ng-click="addGOOds(i,1)">+</a>
+		</div>
+	</div>
+</div>
+<div class="jiesuan clear">
+	<span></span><span>全选</span><span>共:{{doller | number:2}}</span><span></span><span>选好了</span>
+</div>

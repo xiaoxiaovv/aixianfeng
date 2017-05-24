@@ -1,0 +1,24 @@
+.backs{
+	background: url(../img/back.png) no-repeat;
+    background-size: 100% 100%;
+    height: 1.28rem;
+    width: 15%;
+
+}
+.details{
+	text-align: center;
+	width: 100%;
+	font-size: 0.746667rem;
+}
+.details img{
+	    height: 8.0rem;
+    margin-top: 1.226667rem;
+    margin-bottom: 0.32rem;
+}
+.details span:first-of-type{
+	color: red;
+}
+.details span:last-of-type{
+	text-decoration:line-through;
+	margin-left: 0.373333rem;
+}

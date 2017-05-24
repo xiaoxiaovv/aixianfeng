@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="aixianfeng">
+<head>
+	<meta charset="UTF-8">
+	<title>爱鲜蜂</title>
+	<script type="text/javascript" src="lib/flexible.js"></script>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="shortcut icon" href="img/2.ico">
+	<script type="text/javascript" src="lib/angular.min.js"></script>
+	<script src="lib/angular-css.min.js"></script>
+	 <script src="lib/angular-ui-router.js" charset="utf-8"></script>
+	  <style type="text/css">
+		#aiXF{
+			position: absolute;
+			left:0;
+			top:0;
+			bottom:0;
+			right:0;
+		}
+		.content{
+			position: absolute;
+			left:0;
+			top:0;
+			bottom:1.52rem;
+			right:0;
+			overflow: auto;
+		}
+		.footer{
+			position: absolute;
+			height:1.52rem;
+			left:0;
+			right:0;
+			bottom:0;
+			text-align: center;
+			background-color:#f6f6f6;
+		}
+		.footer a{
+			display: block;
+			float: left;
+			width:25%;
+			height:1.52rem;
+		}
+		.footer .icon{
+			height:0.64rem;
+			width:0.64rem;
+			margin:0.16rem auto 0.16rem; 
+		}
+		.footer a:first-of-type .icon{
+			background: url(img/2.png) no-repeat;
+			background-size:100%;
+		}
+		.footer a:nth-of-type(2) .icon{
+			background: url(img/4.png) no-repeat;
+			background-size:100%;
+		}
+		.footer a:nth-of-type(3) .icon{
+			background: url(img/6.png) no-repeat;
+			background-size:100%;
+		}
+		.footer a:nth-of-type(4) .icon{
+			background: url(img/7.png) no-repeat;
+			background-size:100%;
+		}
+		.footer a:first-of-type.active .icon{
+			background: url(img/1.png) no-repeat;
+		}
+		.footer a:nth-of-type(2).active .icon{
+			background: url(img/3.png) no-repeat;
+		}
+		.footer a:nth-of-type(3).active .icon{
+			background: url(img/5.png) no-repeat;
+		}
+		.footer a:nth-of-type(4).active .icon{
+			background: url(img/8.png) no-repeat;
+		}
+		.footer a.active .icon{
+			-webkit-animation: myfirst 0.5s;
+		}
+		@-webkit-keyframes myfirst
+			{
+			    0%   {transform:scale(1.2,1.2)}
+			    25%  {transform:scale(1,1)}
+			    50%  {transform:scale(1.2,1.2)}
+			    100% {transform:scale(1,1)}
+			}
+	  </style>
+	  <link rel="stylesheet" type="text/css" href="lib/swiper.css">
+</head>
+<body>
+	<div id="aiXF">
+		<div class="content" ui-view>
+		</div>
+		<footer class="footer" ng-show="flag">
+			<a ui-sref="home" ui-sref-active="active">
+				<div class="icon"></div>
+				<div class="text">首页</div>
+			</a>
+			<a ui-sref="market" ui-sref-active="active">
+				<div class="icon"></div>
+				<div class="text">闪送超市</div>
+			</a>
+			<a ui-sref="cart" ui-sref-active="active">
+				<div class="icon"></div>
+				<div class="text">购物车</div>
+			</a>
+			<a ui-sref="mine" ui-sref-active="active">
+				<div class="icon"></div>
+				<div class="text">我的</div>
+			</a>
+		</footer>
+	</div>
+</body>
+<script type="text/javascript">
+	 var app=angular.module("aixianfeng",["ui.router","angularCSS"]);
+	app.config(["$stateProvider",'$urlRouterProvider',function($stateProvider,$urlRouterProvider){
+		$urlRouterProvider.when('', '/home');
+		$stateProvider
+		.state("home",{
+			url:"/home",
+			views: {
+				"": {
+					templateUrl:"template/home/home.html",
+					controller:"homeCtrl",
+					css:"template/home/home.css"
+				}
+			}
+		})
+		.state("market",{
+			url:"/market",
+			views:{
+				"":{
+					templateUrl:"template/market/market.html",
+					controller:"marketCtrl",
+					css:"template/market/market.css"
+				}
+			}
+			
+		})
+		.state("cart",{
+			url:"/cart",
+			views: {
+				"": {
+					templateUrl:"template/cart/cart.html",
+					controller:"cartCtrl",
+					css:"./template/cart/cart.css"
+				}
+			}
+		})
+		.state("mine",{
+			url:"/mine",
+			views:{
+				"":{
+					templateUrl:"template/mine/mine.html",
+					controller:"mineCtrl",
+					css:"template/mine/mine.css"					
+				}
+			}
+
+		})
+		.state("detail",{
+			url:"/detail:id",
+			views:{
+				"":{
+					templateUrl:"commen/gooddetail.html",
+					controller:function($scope,$stateParams,$http,$rootScope){
+						/*console.log($stateParams.id);*/
+						$scope.back = function() {
+								$rootScope.flag =true;
+								history.back();
+							};
+						$http({
+							url:'http://h5.yztctech.net/api/axf/apihomehot.php',
+							method:'GET'
+						}).success(function(res){
+						/*console.log(res.data[$stateParams.id-1]);*/
+							$scope.goodsDetail=res.data[$stateParams.id-1];
+							$rootScope.flag=false;
+						})
+					}
+				}
+			}
+			
+		})
+	}]);
+</script>
+<script type="text/javascript" src="service.js"></script>
+<script type="text/javascript" src="lib/swiper.js"></script>
+<script type="text/javascript" src="commen/head.js"></script>
+<script type="text/javascript" src="template/home/home.js"></script>
+<script type="text/javascript" src="template/market/market.js"></script>
+<script type="text/javascript" src="template/cart/cart.js"></script>
+<script type="text/javascript" src="template/mine/mine.js"></script>
+</html>

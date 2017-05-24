@@ -1,0 +1,35 @@
+.header{
+	height:1.466667rem;
+	position: fixed;
+	z-index: 999;
+	top:0;
+	right:0;
+	left:0;
+	background-color: #ffd600;
+}
+.addr{
+	height:1.466667rem;
+	width:6.133333rem;
+	margin:0 auto;
+	line-height: 1.466667rem;
+	text-align: center;
+	font-size: 0.426667rem;
+	font-weight: bold;
+}
+.search{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	padding-right: 0.24rem;
+	padding-top: 0.106667rem;
+}
+.search div:first-of-type{
+	width:1.92rem;
+	height: 0.8rem;
+	background: url(../img/9.png) no-repeat right;
+	background-size: 0.666667rem;
+}
+.search div:last-of-type{
+	text-align: right;
+}
